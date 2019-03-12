@@ -1,0 +1,28 @@
+$bg-color: #333;
+$color: #fff;
+
+body {
+    background: $bg-color;
+    color:$color;
+}
+.wrap{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.title{
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 50px 0 20px 0;
+}
+.passbtn{
+  margin: 5px;
+}
+.daysto{
+  margin: 20px 0 0 0;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
