@@ -26,3 +26,13 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border-style: solid;
+  border-color: #fff;
+}
