@@ -4,6 +4,7 @@ $color: #fff;
 body {
     background: $bg-color;
     color:$color;
+    font-family: sans-serif;
 }
 .wrap{
   display: flex;
@@ -18,7 +19,11 @@ body {
   padding: 50px 0 20px 0;
 }
 .passbtn{
-  margin: 5px;
+  margin: 15px 0 0 0;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-transform: uppercase;
 }
 .daysto{
   margin: 20px 0 0 0;
@@ -29,10 +34,33 @@ body {
 .container{
   display: flex;
   flex-direction: column;
-  //justify-content: center;
   align-items: center;
   width: 500px;
   height: 500px;
   border-style: solid;
   border-color: #fff;
+}
+.event_element{
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 0 0;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: #000;
+    cursor: pointer;
+  }
+}
+.task_btn{
+  border-radius: 20px;
+  width: 50px;
+}
+.task_wrap, .list_wrap{
+  display: flex;
+  flex-direction: row;
+}
+.task_element{
+  font-size: 15px;
 }
