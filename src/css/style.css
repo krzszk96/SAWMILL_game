@@ -3,6 +3,9 @@ body {
   color: #fff;
   font-family: sans-serif; }
 
+button, input, select:focus {
+  outline: 0; }
+
 .bg-info {
   background: red; }
 
@@ -41,11 +44,16 @@ td {
 
 .btn {
   border-radius: 20px;
+  border-style: solid 1px;
+  border-color: #000;
   margin: 5px 5px 5px 5px;
   padding: 5px 15px 5px 15px;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 15px; }
+  .btn:hover {
+    background-color: red;
+    cursor: pointer; }
 
 select {
   padding: 5px 15px 5px 15px;
@@ -53,3 +61,33 @@ select {
   border-style: none; }
   select:hover {
     cursor: pointer; }
+
+hr.style {
+  height: 10px;
+  border: 0;
+  -webkit-box-shadow: 0 10px 10px -10px #8c8b8b inset;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset; }
+
+.pass_btn {
+  border-radius: 25px;
+  margin: 5px 0 0 -35px;
+  padding: 5px 15px 5px 15px;
+  border-style: solid 1px;
+  border-color: #000;
+  text-transform: uppercase;
+  font-weight: bold; }
+  .pass_btn:hover {
+    cursor: pointer;
+    background-color: red; }
+
+.task_input {
+  border-radius: 25px;
+  border-style: solid 1px;
+  border-color: #000;
+  padding: 5px 15px 5px 10px;
+  margin-left: 20px;
+  width: 300px; }
+
+@media only screen and (max-width: 600px) {
+  .task_input {
+    width: 150px; } }
