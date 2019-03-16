@@ -115,10 +115,19 @@ function todayDate(){
 //   //return daysDiff;
 // }
 
+// var task = [
+//     'trash',
+//     'grocery',
+//     'run',
+//     'learn',
+// ];
+
+
+
 document.getElementById("calendar-body").addEventListener("click", function(){
   clickedDay();
   todayDate();
-  
+
 });
 // //create new element in the event div
 // function createTodoList(){
