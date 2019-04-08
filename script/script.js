@@ -1,6 +1,6 @@
 var logs = 0;
 var boards = 0;
-var money = 5550;
+var money = 0;
 var chainsaw = 0;
 var log_worker = 0;
 var cut_worker = 0;
