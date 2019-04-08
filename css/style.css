@@ -4,90 +4,47 @@ body {
   font-family: sans-serif; }
 
 button, input, select:focus {
-  outline: 0; }
-
-.bg-info {
-  background: red; }
+  outline: 0;
+  cursor: pointer; }
 
 .title {
   font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  padding: 50px 0 20px 0; }
+  padding: 30px 0 20px 0; }
 
-.container {
+.sell {
+  margin: 10px; }
+
+.chop, .money, .disp_log_workers, .disp_cut_workers {
+  margin: 10px 0 10px 0; }
+
+.menu {
+  margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; }
+  flex-direction: column; }
 
-.months_calendar {
-  font-size: 20px; }
-
-table, th, td {
-  padding: 5px;
-  text-align: center;
-  border-radius: 50px; }
-
-td {
+.chainsaw, .log_worker, .cut_worker {
+  margin-top: 5px;
   cursor: pointer; }
-  td:hover {
-    background-color: #fff;
-    color: #000; }
+  .chainsaw:hover, .log_worker:hover, .cut_worker:hover {
+    color: #f47a42; }
 
-.btn {
-  border-radius: 20px;
-  border-style: solid 1px;
+.chopbarborder {
+  height: 15px;
+  width: 90px;
+  margin-top: 10px;
+  border-style: solid;
   border-color: #000;
-  margin: 5px 5px 5px 5px;
-  padding: 5px 15px 5px 15px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 15px; }
-  .btn:hover {
-    background-color: red;
-    cursor: pointer; }
+  border-width: 1px; }
 
-select {
-  padding: 5px 15px 5px 15px;
-  border-radius: 20px;
-  border-style: none; }
-  select:hover {
-    cursor: pointer; }
-
-hr.style {
-  height: 10px;
-  border: 0;
-  -webkit-box-shadow: 0 10px 10px -10px #8c8b8b inset;
-  box-shadow: 0 10px 10px -10px #8c8b8b inset; }
-
-.pass_btn {
-  border-radius: 25px;
-  margin: 5px 0 0 -35px;
-  padding: 5px 15px 5px 15px;
-  border-style: solid 1px;
-  border-color: #000;
-  text-transform: uppercase;
-  font-weight: bold; }
-  .pass_btn:hover {
-    cursor: pointer;
-    background-color: red; }
-
-.task_input {
-  border-radius: 25px;
-  border-style: solid 1px;
-  border-color: #000;
-  padding: 5px 15px 5px 10px;
-  margin-left: 20px;
-  width: 300px; }
-
-@media only screen and (max-width: 600px) {
-  .task_input {
-    width: 150px; } }
+.chopbar {
+  height: 15px;
+  width: 0px;
+  background-color: green; }
