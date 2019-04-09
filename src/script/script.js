@@ -47,8 +47,13 @@ function log_worker_calc(){
 function cut_worker_calc(){
     window.setInterval( function(){
     if(logs>0){
-      boards = boards + cut_worker * 4;
-      logs = logs - cut_worker;
+      if(logs<cut_worker){
+        boards = boards + logs * 4;
+        logs = 0;
+      }else{
+        logs = logs - cut_worker;
+        boards = boards + cut_worker * 4;
+      }
       document.getElementById('boards').innerHTML = 'Boards: ' + boards;
       document.getElementById('logs').innerHTML = 'Logs: ' + logs;
     }
