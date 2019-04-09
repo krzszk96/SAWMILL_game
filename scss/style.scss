@@ -5,6 +5,7 @@ body {
     background: $bg-color;
     color:$color;
     font-family: sans-serif;
+    margin-left: 30px;
 }
 button, input, select:focus {outline:0; cursor: pointer;}
 
@@ -14,13 +15,19 @@ button, input, select:focus {outline:0; cursor: pointer;}
   text-transform: uppercase;
   text-align: center;
   padding: 30px 0 20px 0;
+  margin-left: -30px;
 }
-.sell{
-  margin: 10px;
+.sell, .chop, .cut{
+  margin: 10px 0 10px 0;
+  padding: 5px 15px 5px 15px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-.chop,.money,.disp_log_workers,.disp_cut_workers{
+.money,.disp_log_workers,.disp_cut_workers{
   margin: 10px 0 10px 0;
 }
+
 .menu{
   margin-top: 50px;
   display: flex;

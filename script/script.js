@@ -1,6 +1,6 @@
 var logs = 0;
 var boards = 0;
-var money = 0;
+var money = 50000;
 var chainsaw = 0;
 var log_worker = 0;
 var cut_worker = 0;
@@ -48,7 +48,7 @@ function cut_worker_calc(){
     window.setInterval( function(){
     if(logs>0){
       boards = boards + cut_worker * 4;
-      logs--;
+      logs = logs - cut_worker;
       document.getElementById('boards').innerHTML = 'Boards: ' + boards;
       document.getElementById('logs').innerHTML = 'Logs: ' + logs;
     }
