@@ -14,7 +14,7 @@ button, input, select:focus {outline:0; cursor: pointer;}
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  padding: 30px 0 20px 0;
+  padding: 30px 0 50px 0;
   margin-left: -30px;
 }
 .sell, .chop, .cut{
@@ -24,10 +24,16 @@ button, input, select:focus {outline:0; cursor: pointer;}
   text-transform: uppercase;
   font-weight: bold;
 }
+#sell{margin: 10px 0 10px 20px;}
 .money,.disp_log_workers,.disp_cut_workers{
   margin: 10px 0 10px 0;
 }
-
+img.axe_img{
+  width: 100px;
+  height: auto;
+  margin: -70px 0 0 35px;
+}
+#money{margin: 0 0 10px 0;}
 .menu{
   margin-top: 50px;
   display: flex;
@@ -47,7 +53,6 @@ button, input, select:focus {outline:0; cursor: pointer;}
   border-style: solid;
   border-color: #000;
   border-width: 1px;
-
 }
 .chopbar{
   height: 15px;
