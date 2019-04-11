@@ -1,6 +1,6 @@
 var logs = 0;
 var boards = 0;
-var money = 0;
+var money = 5000000;
 var chainsaw = 0;
 var log_worker = 0;
 var cut_worker = 0;
@@ -12,7 +12,8 @@ var harvesters = 0;
 
 function chopTree(){
   if(warehouse_space>logs){
-    if(chainsaw==1){logs = logs + 2;
+    if(chainsaw==1){
+      logs = logs + 2;
     }else if (harvesters>0) {
       logs = logs + 10*harvesters;
     }else {
@@ -47,7 +48,15 @@ function chopBar(){
 
 function logWorkerCalc(){
     window.setInterval( function(){
-    logs = logs + log_worker;
+    if(warehouse_space>logs){
+      var temp = logs + log_worker;
+      if(temp>warehouse_space){
+        logs = logs + warehouse_space-logs;
+      }else {
+        logs = logs + log_worker;
+      }
+
+    }
     document.getElementById('logs').innerHTML = 'Logs: ' + logs;
   }, 5000);
 }
