@@ -95,7 +95,7 @@ function sellBoards(){
   }
 }
 
-document.getElementById("menu").addEventListener("click", function(){
+document.getElementById("menu1").addEventListener("click", function(){
 
   if(event.target.id=='chainsaw'){
     if(money>=200){
