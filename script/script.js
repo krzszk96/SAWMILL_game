@@ -75,11 +75,11 @@ function cutWorkerCalc(){
         }else{
           logs = logs - cut_worker;
           boards = boards + cut_worker * 4;
-        }
+         }
       }
       document.getElementById('boards').innerHTML = 'Boards: ' + boards;
       document.getElementById('logs').innerHTML = 'Logs: ' + logs;
-    }
+    
   }, 5000);
 }
 
