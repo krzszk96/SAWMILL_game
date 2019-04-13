@@ -1,6 +1,8 @@
+//git subtree split --branch gh-pages --prefix src/
+//git push -u origin gh-pages
 var logs = 0;
 var boards = 0;
-var money = 50000000;
+var money = 0;
 var chainsaw = 0;
 var log_worker = 0;
 var cut_worker = 0;
@@ -79,7 +81,7 @@ function cutWorkerCalc(){
       }
       document.getElementById('boards').innerHTML = 'Boards: ' + boards;
       document.getElementById('logs').innerHTML = 'Logs: ' + logs;
-    
+
   }, 5000);
 }
 
