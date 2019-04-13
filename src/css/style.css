@@ -30,6 +30,13 @@ button, input, select:focus {
 #sell {
   margin: 10px 0 10px 20px; }
 
+.sellwhenmill {
+  margin: 10px 0 10px 0 !important;
+  padding: 5px 15px 5px 15px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold; }
+
 .money, .disp_log_workers, .disp_cut_workers, .disp_harvesters {
   margin: 10px 0 10px 0; }
 
@@ -41,10 +48,10 @@ img.axe_img {
 #money {
   margin: 0 0 10px 0; }
 
-.chainsaw, .log_worker, .cut_worker, .buy_warehouse_space, .buy_harvester {
+.chainsaw, .log_worker, .cut_worker, .buy_warehouse_space, .buy_harvester, .sawmill {
   margin-top: 5px;
   cursor: pointer; }
-  .chainsaw:hover, .log_worker:hover, .cut_worker:hover, .buy_warehouse_space:hover, .buy_harvester:hover {
+  .chainsaw:hover, .log_worker:hover, .cut_worker:hover, .buy_warehouse_space:hover, .buy_harvester:hover, .sawmill:hover {
     color: #f47a42; }
 
 .chopbarborder {
@@ -83,9 +90,7 @@ img.axe_img {
   left: -5px;
   cursor: pointer;
   opacity: 0;
-  /* hide this */
   z-index: 2;
-  /* and place it over the hamburger */
   -webkit-touch-callout: none; }
 
 #menuToggle span {
