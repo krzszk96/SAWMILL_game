@@ -1,6 +1,6 @@
 var logs = 0;
 var boards = 0;
-var money = 5000000;
+var money = 50000000;
 var chainsaw = 0;
 var log_worker = 0;
 var cut_worker = 0;
@@ -9,13 +9,15 @@ var executed_cut_worker = false;
 var chopbar = 0;
 var warehouse_space = 100;
 var harvesters = 0;
+var sawmill_level = 0;
+var sawmill_mult = 5000;
 
 function chopTree(){
   if(warehouse_space>logs){
-    if(chainsaw==1){
-      logs = logs + 2;
-    }else if (harvesters>0) {
+    if(harvesters>0){
       logs = logs + 10*harvesters;
+    }else if (chainsaw==1) {
+      logs = logs + 2;
     }else {
       logs++;
     }
@@ -63,13 +65,17 @@ function logWorkerCalc(){
 
 function cutWorkerCalc(){
     window.setInterval( function(){
-    if(logs>0){
       if(logs<cut_worker){
         boards = boards + logs * 4;
         logs = 0;
       }else{
-        logs = logs - cut_worker;
-        boards = boards + cut_worker * 4;
+        if(sawmill_level>0){
+          logs = logs - cut_worker;
+          boards = boards + cut_worker * 4 * sawmill_level+1;
+        }else{
+          logs = logs - cut_worker;
+          boards = boards + cut_worker * 4;
+        }
       }
       document.getElementById('boards').innerHTML = 'Boards: ' + boards;
       document.getElementById('logs').innerHTML = 'Logs: ' + logs;
@@ -144,5 +150,16 @@ document.getElementById("menu1").addEventListener("click", function(){
     }
     document.getElementById('disp_harvesters').innerHTML = 'Number of harvesters: ' + harvesters;
     document.getElementById('money').innerHTML = 'Money: ' + money + ' $';
+  }
+  if(event.target.id=='sawmill'){
+    if(money>=1000000){
+      money = money - 1000000;
+      sawmill_level++;
+      document.getElementById("sawmill").style.display = "none";
+      document.getElementById("cut").style.display = "none";
+      document.getElementById("sell").className = "sellwhenmill";
+      document.getElementById('money').innerHTML = 'Money: ' + money + ' $';
+      document.getElementById('sawmill_info').innerHTML = 'Sawmill level: ' + sawmill_level;
+    }
   }
 });
