@@ -60,10 +60,15 @@ showStats();
 
 function chopTree(){
   if(Stats.warehouse_space>Stats.logs){
+
     if(Stats.harvesters>0){
       Stats.logs = Stats.logs + 10*Stats.harvesters;
+      if(Stats.logs>Stats.warehouse_space){Stats.logs=Stats.warehouse_space}
+
     }else if (Stats.chainsaw==1) {
       Stats.logs = Stats.logs + 2;
+      if(Stats.logs>Stats.warehouse_space){Stats.logs=Stats.warehouse_space}
+      
     }else {
       Stats.logs++;
     }
@@ -140,10 +145,19 @@ function cutBoards(){
 
 function sellBoards(){
   if(Stats.boards>0){
-    Stats.money = Stats.money + Stats.boards * 4;
+    Stats.money = Stats.money + Stats.boards * 4000000;
     Stats.boards = 0;
     showStats();
   }
+  saveStats();
+}
+
+function upgradeSawmill(){
+  if((Stats.money>=1000000)&&(Stats.sawmill_level>0)){
+    Stats.money = Stats.money - 1000000;
+    Stats.sawmill_level++;
+  }
+  showStats();
   saveStats();
 }
 

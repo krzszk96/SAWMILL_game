@@ -10,6 +10,12 @@ body {
 button, input, select:focus {outline:0; cursor: pointer;}
 
 .title{
+  color: #a87045;
+  text-shadow:
+		-1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
   font-size: 40px;
   font-weight: bold;
   font-family: SketchLogs;
@@ -21,7 +27,7 @@ button, input, select:focus {outline:0; cursor: pointer;}
 .warehouse_space{
   margin: 10px 0 10px 0;
 }
-.sell, .chop, .cut{
+.sell, .chop, .cut, .upgrade{
   margin: 10px 0 10px 0;
   padding: 5px 15px 5px 15px;
   font-size: 15px;
