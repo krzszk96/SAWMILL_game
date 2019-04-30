@@ -1,7 +1,5 @@
 //git subtree split --branch gh-pages --prefix src/
 //git push -u origin gh-pages
-// create eventlistener that will catch every click on the web page, and save obj stats.
-//then find a way that update ojbect after every click
 
 var chopbar = 0;
 
@@ -20,6 +18,46 @@ var Stats = {
   sawmill_mult: 5000
 }
 
+function saveStats(){
+  var str = JSON.stringify(Stats);
+  localStorage.setItem("sstats", str);
+}
+
+function getStats(){
+  var str = localStorage.getItem("sstats");
+  Stats = JSON.parse(str);
+  if(!Stats){
+    Stats = {
+      logs: 0,
+      boards: 0,
+      money: 0,
+      chainsaw: 0,
+      log_worker: 0,
+      cut_worker: 0,
+      executed_log_worker: false,
+      executed_cut_worker: false,
+      warehouse_space: 100,
+      harvesters: 0,
+      sawmill_level: 0,
+      sawmill_mult: 5000
+    }
+  }
+}
+
+function showStats(){
+  document.getElementById('logs').innerHTML = 'Logs: ' + Stats.logs;
+  document.getElementById('boards').innerHTML = 'Boards: ' + Stats.boards;
+  document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+  document.getElementById('disp_log_workers').innerHTML = 'Number of log workers: ' + Stats.log_worker;
+  document.getElementById('disp_cut_workers').innerHTML = 'Number of cut workers: ' + Stats.cut_worker;
+  document.getElementById('warehouse_space').innerHTML = 'Warehouse space: ' + Stats.warehouse_space;
+  document.getElementById('disp_harvesters').innerHTML = 'Number of harvesters: ' + Stats.harvesters;
+  document.getElementById('sawmill_info').innerHTML = 'Sawmill level: ' + Stats.sawmill_level;
+}
+
+getStats();
+showStats();
+
 function chopTree(){
   if(Stats.warehouse_space>Stats.logs){
     if(Stats.harvesters>0){
@@ -30,7 +68,7 @@ function chopTree(){
       Stats.logs++;
     }
   }
-  document.getElementById('logs').innerHTML = 'Logs: ' + Stats.logs;
+  showStats();
 }
 
 function chopBar(){
@@ -52,6 +90,7 @@ function chopBar(){
       document.getElementById("axe_img").style.transform = "rotate(60deg)";
       chopbar = 0;
       chopTree();
+      saveStats();
     break;
   }
 }
@@ -67,7 +106,7 @@ function logWorkerCalc(){
       }
 
     }
-    document.getElementById('logs').innerHTML = 'Logs: ' + Stats.logs;
+    showStats();
   }, 5000);
 }
 
@@ -85,9 +124,7 @@ function cutWorkerCalc(){
           Stats.boards = Stats.boards + Stats.cut_worker * 4;
          }
       }
-      document.getElementById('boards').innerHTML = 'Boards: ' + Stats.boards;
-      document.getElementById('logs').innerHTML = 'Logs: ' + Stats.logs;
-
+      showStats();
   }, 5000);
 }
 
@@ -97,17 +134,17 @@ function cutBoards(){
     Stats.logs--;
     Stats.boards = Stats.boards + 4;
   }
-  document.getElementById('boards').innerHTML = 'Boards: ' + Stats.boards;
-  document.getElementById('logs').innerHTML = 'Logs: ' + Stats.logs;
+  showStats();
+  saveStats();
 }
 
 function sellBoards(){
   if(Stats.boards>0){
     Stats.money = Stats.money + Stats.boards * 4;
     Stats.boards = 0;
-    document.getElementById('boards').innerHTML = 'Boards: ' + Stats.boards;
-    document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+    showStats();
   }
+  saveStats();
 }
 
 document.getElementById("menu1").addEventListener("click", function(){
@@ -117,7 +154,7 @@ document.getElementById("menu1").addEventListener("click", function(){
       Stats.money = Stats.money - 200;
       Stats.chainsaw = 1;
       document.getElementById("chainsaw").style.display = "none";
-      document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+      showStats();
     }
   }
   if(event.target.id=='log_worker'){
@@ -129,8 +166,7 @@ document.getElementById("menu1").addEventListener("click", function(){
           logWorkerCalc();
         }
     }
-    document.getElementById('disp_log_workers').innerHTML = 'Number of log workers: ' + Stats.log_worker;
-    document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+    showStats();
   }
   if(event.target.id=='cut_worker'){
     if(Stats.money>=1500){
@@ -141,24 +177,21 @@ document.getElementById("menu1").addEventListener("click", function(){
           cutWorkerCalc();
         }
     }
-    document.getElementById('disp_cut_workers').innerHTML = 'Number of cut workers: ' + Stats.cut_worker;
-    document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+    showStats();
   }
   if(event.target.id=='buy_warehouse_space'){
     if(Stats.money>=10000){
       Stats.money = Stats.money - 10000;
       Stats.warehouse_space = Stats.warehouse_space + 100;
     }
-    document.getElementById('warehouse_space').innerHTML = 'Warehouse space: ' + Stats.warehouse_space;
-    document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+    showStats();
   }
   if(event.target.id=='buy_harvester'){
     if(Stats.money>=100000){
       Stats.money = Stats.money - 100000;
       Stats.harvesters++;
     }
-    document.getElementById('disp_harvesters').innerHTML = 'Number of harvesters: ' + Stats.harvesters;
-    document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
+    showStats();
   }
   if(event.target.id=='sawmill'){
     if(Stats.money>=1000000){
@@ -167,8 +200,7 @@ document.getElementById("menu1").addEventListener("click", function(){
       document.getElementById("sawmill").style.display = "none";
       document.getElementById("cut").style.display = "none";
       document.getElementById("sell").className = "sellwhenmill";
-      document.getElementById('money').innerHTML = 'Money: ' + Stats.money + ' $';
-      document.getElementById('sawmill_info').innerHTML = 'Sawmill level: ' + Stats.sawmill_level;
+      showStats();
     }
   }
 });
