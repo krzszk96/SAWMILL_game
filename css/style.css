@@ -42,6 +42,67 @@ button, input, select:focus {
 .money, .disp_log_workers, .disp_cut_workers, .disp_harvesters {
   margin: 10px 0 10px 0; }
 
+.market_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 10px 0 0 30px; }
+
+.log_price {
+  margin: 20px 0 10px 0; }
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch; }
+
+.left {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%; }
+
+.right {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%; }
+
+@media screen and (min-width: 600px) {
+  .container {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
+  .left {
+    -ms-flex-preferred-size: 300px;
+    flex-basis: 300px;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1; }
+  .right {
+    -ms-flex-preferred-size: 200px;
+    flex-basis: 200px;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2; } }
+
 img.axe_img {
   width: 100px;
   height: auto;
@@ -60,9 +121,7 @@ img.axe_img {
   height: 15px;
   width: 90px;
   margin-top: 10px;
-  border-style: solid;
-  border-color: #000;
-  border-width: 1px; }
+  border: 1px solid #fff; }
 
 .chopbar {
   height: 15px;

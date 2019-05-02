@@ -45,6 +45,38 @@ button, input, select:focus {outline:0; cursor: pointer;}
 .money, .disp_log_workers, .disp_cut_workers, .disp_harvesters{
   margin: 10px 0 10px 0;
 }
+.market_wrap{
+  display:flex;
+  flex-direction: column;
+  margin: 10px 0 0 30px;
+}
+.log_price{
+  margin: 20px 0 10px 0;
+}
+.container {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:stretch;
+}
+.left {order:1; flex-basis:100%; }
+.right {order:2; flex-basis:100%; }
+
+@media screen and (min-width:600px) {
+   .container {
+       flex-wrap:nowrap;
+   }
+    .left {
+        flex-basis:300px;
+        order:1;
+    }
+    .right {
+        flex-basis:200px;
+        order:2;
+    }
+}
+
 img.axe_img{
   width: 100px;
   height: auto;
@@ -62,9 +94,7 @@ img.axe_img{
   height: 15px;
   width: 90px;
   margin-top: 10px;
-  border-style: solid;
-  border-color: #000;
-  border-width: 1px;
+  border: 1px solid #fff;
 }
 .chopbar{
   height: 15px;

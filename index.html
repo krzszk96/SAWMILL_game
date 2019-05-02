@@ -34,24 +34,39 @@
 
     <div class='title' id='title'>SAWMILL<br/> game</div>
 
-    <div class="warehouse_space" id="warehouse_space">Warehouse space: 100</div>
-    <div class="logs" id="logs">Logs: 0</div>
+    <div class="container">
+      <div class="left">
+        <div class="warehouse_space" id="warehouse_space">Warehouse space: 100</div>
+        <div class="logs" id="logs">Logs: 0</div>
 
-    <div class="chopbarborder"><div class="chopbar" id="chopbar"></div></div>
-    <button class="chop" id="chop" onclick="chopBar();">Chop</button>
-    <img class="axe_img" id="axe_img" src="https://krzszk96.github.io/SAWMILL_game/images/axe.png" alt="this is an axe"/>
+        <div class="chopbarborder"><div class="chopbar" id="chopbar"></div></div>
+        <button class="chop" id="chop" onclick="chopBar();">Chop</button>
+        <img class="axe_img" id="axe_img" src="https://krzszk96.github.io/SAWMILL_game/images/axe.png" alt="this is an axe"/>
 
-    <div class="boards" id="boards">Boards: 0</div>
-    <button class="cut" id="cut" onclick="cutBoards()">Cut</button>
+        <div class="boards" id="boards">Boards: 0</div>
+        <button class="cut" id="cut" onclick="cutBoards()">Cut</button>
 
-    <button class="sell" id="sell" onclick="sellBoards()">Sell</button>
-    <div class="money" id="money">Money: 0</div>
-    <br/><br/>
+        <button class="sell" id="sell" onclick="sellBoards()">Sell</button>
+        <div class="money" id="money">Money: 0</div>
+        <br/><br/>
+      </div>
+
+      <div class="right">
+        <div class="market_wrap" id="market_wrap"> Market:
+          <div class="log_price" id="log_price">Log market price: 0.2 $</div>
+          <div class="board_price" id="board_price">Board market price: 1 $</div>
+        </div>
+      </div>
+    </div>
+
+
     <div class="disp_log_workers" id="disp_log_workers">Number of log workers: 0</div>
     <div class="disp_cut_workers" id="disp_cut_workers">Number of cut workers: 0</div>
     <div class="disp_harvesters" id="disp_harvesters">Number of harvesters: 0</div>
     <div class="sawmill_info" id="sawmill_info">Sawmill level: 0</div>
     <button class="upgrade" id="upgrade" onclick="upgradeSawmill()">upgrade</button>
+
+
 
     <!-- <div class="menu" id="menu1">Menu:
       <div class="chainsaw" id="chainsaw">- buy chainsaw (200$)</div>
