@@ -2,6 +2,8 @@
 //git push -u origin gh-pages
 
 var chopbar = 0;
+var boardPrice = 1;
+var logPrice = 0.2;
 
 var Stats = {
   logs: 0,
@@ -57,6 +59,8 @@ function showStats(){
 
 getStats();
 showStats();
+boardPriceCalc();
+logPriceCalc();
 
 function chopTree(){
   if(Stats.warehouse_space>Stats.logs){
@@ -68,7 +72,7 @@ function chopTree(){
     }else if (Stats.chainsaw==1) {
       Stats.logs = Stats.logs + 2;
       if(Stats.logs>Stats.warehouse_space){Stats.logs=Stats.warehouse_space}
-      
+
     }else {
       Stats.logs++;
     }
@@ -143,9 +147,26 @@ function cutBoards(){
   saveStats();
 }
 
+function boardPriceCalc(){
+
+  window.setInterval( function(){
+    boardPrice = Math.floor(Math.random() * 6) + 1;
+    document.getElementById('board_price').innerHTML = 'Board market price: ' + boardPrice +" $";
+  }, 5000);
+}
+
+function logPriceCalc(){
+
+  window.setInterval( function(){
+    logPrice = ((Math.random() * 2)+0.1).toFixed(1);
+    document.getElementById('log_price').innerHTML = 'Log market price: ' + logPrice +" $";
+  }, 5000);
+}
+
+
 function sellBoards(){
   if(Stats.boards>0){
-    Stats.money = Stats.money + Stats.boards * 4000000;
+    Stats.money = Stats.money + Stats.boards * boardPrice;
     Stats.boards = 0;
     showStats();
   }
