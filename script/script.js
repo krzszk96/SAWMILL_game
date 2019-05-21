@@ -5,6 +5,8 @@ var chopbar = 0;
 var boardPrice = 1;
 var logPrice = 0.2;
 
+
+
 var Stats = {
   logs: 0,
   boards: 0,
@@ -46,6 +48,7 @@ function getStats(){
   }
 }
 
+
 function showStats(){
   document.getElementById('logs').innerHTML = 'Logs: ' + Stats.logs;
   document.getElementById('boards').innerHTML = 'Boards: ' + Stats.boards;
@@ -57,10 +60,36 @@ function showStats(){
   document.getElementById('sawmill_info').innerHTML = 'Sawmill level: ' + Stats.sawmill_level;
 }
 
+function setActive(){
+    document.getElementById("nav").addEventListener("click", function(){
+      //active.classList.remove("active");
+      var current = document.getElementById(event.target.id);
+      active = current;
+      console.log(active);
+      console.log(current);
+      current.classList.add("active");
+    });
+}
+
 getStats();
 showStats();
 boardPriceCalc();
 logPriceCalc();
+
+
+
+function pageRoload(){
+  if(event.target.id=='market'){
+      document.getElementById('action_stuff').style.display = "none";
+      document.getElementById('container_market').style.display = "inline";
+      showStats();
+  }
+  if(event.target.id=='overwiew'){
+    document.getElementById('action_stuff').style.display = "inline";
+    document.getElementById('container_market').style.display = "none";
+  }
+}
+
 
 function chopTree(){
   if(Stats.warehouse_space>Stats.logs){
@@ -168,6 +197,15 @@ function sellBoards(){
   if(Stats.boards>0){
     Stats.money = Stats.money + Stats.boards * boardPrice;
     Stats.boards = 0;
+    showStats();
+  }
+  saveStats();
+}
+
+function sellLogs(){
+  if(Stats.logs>0){
+    Stats.money = Stats.money + Stats.logs * logPrice;
+    Stats.logs = 0;
     showStats();
   }
   saveStats();

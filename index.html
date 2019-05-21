@@ -34,47 +34,51 @@
 
     <div class='title' id='title'>SAWMILL<br/> game</div>
 
-    <div class="container">
-      <div class="left">
+    <div class="container_game" id="container_game">
+
         <div class="warehouse_space" id="warehouse_space">Warehouse space: 100</div>
-        <div class="logs" id="logs">Logs: 0</div>
+          <div class="goods" id="goods">
+            <div class="logs" id="logs">Logs: 0</div>
+            <div class="boards" id="boards">Boards: 0</div>
+            <div class="money" id="money">Money: 0</div>
+          </div>
 
-        <div class="chopbarborder"><div class="chopbar" id="chopbar"></div></div>
-        <button class="chop" id="chop" onclick="chopBar();">Chop</button>
-        <img class="axe_img" id="axe_img" src="https://krzszk96.github.io/SAWMILL_game/images/axe.png" alt="this is an axe"/>
+          <div id="action_stuff">
 
-        <div class="boards" id="boards">Boards: 0</div>
-        <button class="cut" id="cut" onclick="cutBoards()">Cut</button>
+            <div class="chopbarborder"><div class="chopbar" id="chopbar"></div></div>
+            <button class="chop" id="chop" onclick="chopBar();">Chop</button>
+            <img class="axe_img" id="axe_img" src="https://krzszk96.github.io/SAWMILL_game/images/axe.png" alt="this is an axe"/>
+            <button class="cut" id="cut" onclick="cutBoards()">Cut</button>
 
-        <button class="sell" id="sell" onclick="sellBoards()">Sell</button>
-        <div class="money" id="money">Money: 0</div>
+            <br/><br/>
+
+            <div class="disp_log_workers" id="disp_log_workers">Number of log workers: 0</div>
+            <div class="disp_cut_workers" id="disp_cut_workers">Number of cut workers: 0</div>
+            <div class="disp_harvesters" id="disp_harvesters">Number of harvesters: 0</div>
+            <div class="sawmill_info" id="sawmill_info">Sawmill level: 0</div>
+            <button class="upgrade" id="upgrade" onclick="upgradeSawmill()">upgrade</button>
+          </div>
+    </div>
+
+    <div class="container_market" id="container_market">
+      <br/><br/>
+      <div class="market_wrap" id="market_wrap"> Market:
+        <div class="log_price" id="log_price">Log market price: 0.2 $</div>
+        <div class="board_price" id="board_price">Board market price: 1 $</div>
+
         <br/><br/>
-      </div>
 
-      <div class="right">
-        <div class="market_wrap" id="market_wrap"> Market:
-          <div class="log_price" id="log_price">Log market price: 0.2 $</div>
-          <div class="board_price" id="board_price">Board market price: 1 $</div>
-        </div>
+        <button class="sell" id="selllogs" onclick="sellLogs()">Sell logs</button>
+        <button class="sell" id="sell" onclick="sellBoards()">Sell boards</button>
+
       </div>
     </div>
 
-
-    <div class="disp_log_workers" id="disp_log_workers">Number of log workers: 0</div>
-    <div class="disp_cut_workers" id="disp_cut_workers">Number of cut workers: 0</div>
-    <div class="disp_harvesters" id="disp_harvesters">Number of harvesters: 0</div>
-    <div class="sawmill_info" id="sawmill_info">Sawmill level: 0</div>
-    <button class="upgrade" id="upgrade" onclick="upgradeSawmill()">upgrade</button>
-
-
-
-    <!-- <div class="menu" id="menu1">Menu:
-      <div class="chainsaw" id="chainsaw">- buy chainsaw (200$)</div>
-      <div class="log_worker" id="log_worker">- hire log worker (1000$)</div>
-      <div class="cut_worker" id="cut_worker">- hire cut worker (1500$)</div>
-      <div class="buy_warehouse_space" id="buy_warehouse_space">- buy warehouse space (10 000$)</div>
-      <div class="buy_harvester" id="buy_harvester">- buy harvester (100 000$)</div>
-    </div> -->
+    <div class="navbar" id="nav">
+      <a class="overview" id="overwiew" onclick="pageRoload(), setActive()">Overview</a>
+      <a class="upgrades" id="upgrades" onclick="pageRoload(), setActive()">Upgrades</a>
+      <a class="market" id="market" onclick="pageRoload(), setActive()">Market</a>
+    </div>
 
 
 <script src="script/script.js"></script>
