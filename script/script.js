@@ -6,7 +6,6 @@ var boardPrice = 1;
 var logPrice = 0.2;
 
 
-
 var Stats = {
   logs: 0,
   boards: 0,
@@ -62,12 +61,14 @@ function showStats(){
 
 function setActive(){
     document.getElementById("nav").addEventListener("click", function(){
-      //active.classList.remove("active");
-      var current = document.getElementById(event.target.id);
-      active = current;
-      console.log(active);
-      console.log(current);
-      current.classList.add("active");
+      var elements = document.getElementsByTagName('a');
+
+          for (var i = 0; i < elements.length; i++) {
+              var str = elements[i].className;
+              if(str.includes('active')){ elements[i].classList.remove('active');}
+          }
+
+      document.getElementById(event.target.id).classList.add("active");
     });
 }
 
@@ -77,16 +78,25 @@ boardPriceCalc();
 logPriceCalc();
 
 
-
 function pageRoload(){
   if(event.target.id=='market'){
       document.getElementById('action_stuff').style.display = "none";
       document.getElementById('container_market').style.display = "inline";
+      document.getElementById('shop').style.display = "none";
       showStats();
+  }
+  if(event.target.id=='upgrades'){
+    document.getElementById('chopping_stuff').style.display = "none";
+    document.getElementById('container_market').style.display = "none";
+    document.getElementById('shop').style.display = "inline";
+    showStats();
   }
   if(event.target.id=='overwiew'){
     document.getElementById('action_stuff').style.display = "inline";
+    document.getElementById('chopping_stuff').style.display = "block";
     document.getElementById('container_market').style.display = "none";
+    document.getElementById('shop').style.display = "none";
+    showStats();
   }
 }
 
@@ -221,7 +231,7 @@ function upgradeSawmill(){
 }
 
 document.getElementById("menu1").addEventListener("click", function(){
-
+console.log(event.target.id);
   if(event.target.id=='chainsaw'){
     if(Stats.money>=200){
       Stats.money = Stats.money - 200;
